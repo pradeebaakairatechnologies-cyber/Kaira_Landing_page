@@ -1,0 +1,790 @@
+/* --- Root and Reset (Existing) --- */
+:root {
+    --bg-color: #080808;
+    --card-bg: #111111;
+    --text-white: #ffffff;
+    --text-grey: #888888;
+    --primary-yellow: #fcdb66;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-white);
+    font-family: 'Outfit', sans-serif;
+    overflow-x: hidden;
+}
+
+/* --- Section Layout --- */
+.about-section {
+    padding: 100px 5vw;
+    display: flex;
+    justify-content: center;
+}
+
+.container1 {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    grid-template-rows: auto auto;
+    column-gap: 50px;
+    row-gap: 40px;
+    max-width: 1300px;
+    width: 100%;
+    /* UPDATED: Establishes context for absolute positioned children */
+    position: relative;
+}
+
+/* --- NEW: Floating Icon Styles --- */
+.floating-icon-wrapper {
+    position: absolute;
+    top: 30px;
+    /* Position vertically relative to the top of the container */
+    right: -10px;
+    /* Position horizontally on the far right outside the grid */
+    width: 150px;
+    /* Define the wrapper size */
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: -1;
+    /* Sits below potential text if needed */
+}
+
+.floating-icon {
+    width: 100%;
+    /* Icon fills the wrapper */
+    height: auto;
+    object-fit: contain;
+    /* NEW: Infinite Up and Down Animation */
+    animation: floating-up-down 6s ease-in-out infinite;
+}
+
+/* --- NEW: Up and Down Animation Definition --- */
+@keyframes floating-up-down {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-30px);
+    }
+
+    /* Maximum height */
+    100% {
+        transform: translateY(0px);
+    }
+
+    /* Return to start */
+}
+
+/* --- Existing CSS continues below... --- */
+
+.left-box {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    position: relative;
+}
+
+.main-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px 20px 20px 200px;
+    object-fit: cover;
+    min-height: 550px;
+    position: relative;
+    z-index: 2;
+}
+
+.rotating-icon-wrapper {
+    position: absolute;
+    bottom: 10px;
+    left: 40px;
+    width: 140px;
+    height: 140px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rotating-icon {
+    width: 300px;
+    height: auto;
+    object-fit: contain;
+    animation: rotate-infinite 12s linear infinite;
+}
+
+@keyframes rotate-infinite {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.right-box {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    padding-top: 30px;
+}
+
+.section-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    color: var(--text-white);
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+.main-title {
+    font-size: 3rem;
+    line-height: 1.1;
+    font-weight: 500;
+    margin: 0;
+    letter-spacing: -1px;
+}
+
+.text-muted {
+    color: var(--text-grey);
+}
+
+.overlap-card {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    background: var(--card-bg);
+    border: 8px solid var(--primary-yellow);
+    border-left: none;
+    border-bottom: none;
+    border-radius: 0 150px 150px 150px;
+    margin-left: -150px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    padding: 60px 80px;
+    gap: 60px;
+    box-shadow: -20px 0 50px rgba(0, 0, 0, 0.4);
+    height: 300px;
+    top: 40px;
+    position: relative;
+    width: 700px;
+}
+
+.card-left {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-width: 160px;
+}
+
+.stats {
+    display: flex;
+    align-items: flex-start;
+    color: var(--primary-yellow);
+    line-height: 1;
+}
+
+.stats .number {
+    font-size: 5rem;
+    font-weight: 600;
+}
+
+.stats .plus {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.stats-desc {
+    font-size: 15px;
+    color: #cccccc;
+    margin: 15px 0 0 0;
+    line-height: 1.5;
+    font-weight: 300;
+}
+
+.curly-arrow {
+    position: absolute;
+    bottom: -60px;
+    right: -50px;
+}
+
+.card-right {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.agency-desc {
+    color: #aaaaaa;
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 400px;
+    font-weight: 300;
+}
+
+.btn-more {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: fit-content;
+    gap: 20px;
+    color: var(--text-white);
+    text-decoration: none;
+    font-size: 14px;
+    border: 1px solid #333;
+    border-radius: 30px;
+    padding: 8px 8px 8px 25px;
+    transition: 0.3s;
+}
+
+.icon-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    background: #1a1a1a;
+    border-radius: 50%;
+    border: 1px solid #333;
+}
+
+.btn-more:hover {
+    background: #222;
+}
+
+.btn-more:hover .icon-circle {
+    background: var(--primary-yellow);
+}
+
+.btn-more:hover .icon-circle svg line,
+.btn-more:hover .icon-circle svg polyline {
+    stroke: #000;
+}
+
+@media (max-width: 1024px) {
+
+    /* .container { grid-template-columns: 1fr; } */
+    .overlap-card {
+        margin-left: 0;
+        margin-top: -80px;
+        border-radius: 40px;
+        border-left: 4px solid var(--primary-yellow);
+    }
+
+    .rotating-icon-wrapper {
+        display: none;
+    }
+
+    /* NEW: Adjust or Hide Floating Icon on Tablets */
+    .floating-icon-wrapper {
+        top: -20px;
+        right: 20px;
+        width: 100px;
+    }
+}
+
+
+/* --- Mobile Responsiveness (768px and below) --- */
+@media (max-width: 768px) {
+    .about-section {
+        padding: 60px 20px;
+    }
+
+    /* .container {
+        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    } */
+
+    .main-image {
+        min-height: 350px;
+        /* Adjusting the large radius for smaller screens */
+        border-radius: 20px 20px 20px 100px;
+    }
+
+    .main-title {
+        font-size: 2.2rem;
+        line-height: 1.2;
+    }
+
+    .overlap-card {
+        /* Reset positioning and fixed dimensions */
+        position: static;
+        width: 100%;
+        height: auto;
+        margin-left: 0;
+        margin-top: 50px;
+        /* Slight overlap with image */
+        padding: 40px 30px;
+        flex-direction: column;
+        gap: 30px;
+
+        /* Restore borders for a boxed look on mobile */
+        border: 4px solid var(--primary-yellow);
+        border-radius: 30px;
+    }
+
+    .card-left {
+        min-width: unset;
+        align-items: flex-start;
+    }
+
+    .stats .number {
+        font-size: 4rem;
+    }
+
+    .agency-desc {
+        max-width: 100%;
+        font-size: 15px;
+    }
+
+    .floating-icon-wrapper {
+        width: 80px;
+        height: 80px;
+        top: 10px;
+        right: 10px;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 1.8rem;
+    }
+
+    .overlap-card {
+        padding: 30px 20px;
+    }
+}
+
+/* ================= MARQUEE SECTION ================= */
+.marquee-section {
+    width: 100vw;
+    background-color: var(--primary-yellow);
+    /* Yellow background */
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+    overflow: hidden;
+    padding: 60px 0;
+    position: relative;
+    /* ensure it stays on top of any body bleed */
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    z-index: 10;
+}
+
+.marquee-track {
+    display: flex;
+    white-space: nowrap;
+    width: max-content;
+}
+
+.marquee-content {
+    display: flex;
+    align-items: center;
+    animation: marquee-scroll 30s linear infinite;
+}
+
+@keyframes marquee-scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.marquee-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #000;
+    color: #000;
+    font-weight: 600;
+    /* Transparent to show overlapping borders */
+    background-color: transparent;
+    height: 70px;
+    /* Fixed height for uniform overlap */
+    margin-left: -30px;
+    /* Negative margin for deeper overlap */
+    position: relative;
+    box-sizing: border-box;
+    
+}
+
+.marquee-item.pill {
+    padding: 60px 80px;
+    border-radius: 50px;
+    font-size: 74px;
+    letter-spacing: 1px;
+    
+}
+
+.marquee-item.circle {
+    padding: 60px 80px;
+    border-radius: 50px;
+    font-size: 28px;
+    flex-shrink: 0;
+}
+
+.marquee-item.circle i {
+    /* Add a subtle rotation animation to the asterisk */
+    animation: rotate-infinite 15s linear infinite;
+}
+
+/* Mobile Responsiveness for Marquee */
+@media (max-width: 768px) {
+    .marquee-item {
+        height: 50px;
+        margin-left: -20px;
+    }
+
+    .marquee-item.pill {
+        padding: 0 40px;
+        font-size: 24px;
+    }
+
+    .marquee-item.circle {
+        padding: 0 30px;
+        font-size: 20px;
+    }
+}
+
+/* ================= WHY CHOOSE US ================= */
+
+.why-section {
+    background: url("/images/why-bg.jpg") center/cover no-repeat;
+    padding: 110px 0;
+    position: relative;
+    color: #000;
+    height: 90vh;
+}
+
+.why-section .container-fluid {
+    max-width: 1300px;
+    margin: auto;
+}
+
+.why-title {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 20px 0 30px;
+    max-width: 520px;
+}
+
+/* features */
+
+.why-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    margin-top: 35px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    max-width: 420px;
+}
+
+.start-left {
+    margin-top: -140px;
+}
+
+.icon-box {
+    width: 65px;
+    height: 65px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    perspective: 800px;
+    flex-shrink: 0;
+}
+
+.icon-inner {
+    font-size: 24px;
+    transition: transform .7s;
+}
+
+.icon-box:hover .icon-inner {
+    transform: rotateY(360deg);
+}
+
+.why-feature h6 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.why-feature p {
+    font-size: 14px;
+    color: #333;
+    margin: 0;
+}
+
+/* explore button */
+
+.explore-btn {
+    background: #000;
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 35px;
+    margin-top: 35px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.explore-btn i {
+    background: #111;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+/* images */
+
+.img-shape {
+    height: 380px;
+    overflow: hidden;
+    clip-path: polygon(81% 0, 100% 0, 100% 18%, 100% 70%, 100% 100%, 50% 100%, 0 100%, 0% 70%, 0 23%, 22% 0);
+}
+
+.img-shape1 {
+    height: 520px;
+    overflow: hidden;
+    clip-path: polygon(81% 0, 82% 0, 100% 18%, 100% 70%, 100% 100%, 50% 100%, 0 100%, 0% 70%, 0% 35%, 0 0);
+}
+
+.img-shape img,
+.img-shape1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* stat box */
+
+.stat-box {
+    background: #000;
+    color: #fff;
+    padding: 30px;
+    margin-top: 15px;
+    width: 310px;
+    position: relative;
+    top: -150px;
+    right: 0px;
+    height: 120px;
+}
+
+.stat-number {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 5px;
+
+}
+
+/* responsive */
+
+@media(max-width:991px) {
+
+    .why-title {
+        font-size: 34px;
+    }
+
+    .img-shape {
+        height: 300px;
+    }
+
+    .img-shape1 {
+        height: 350px;
+    }
+
+}
+
+
+.rotating-mul {
+    animation: rotate-infinite 8s linear infinite;
+}
+
+
+
+
+/* Core Styling */
+
+
+/* Sub-title Asterisk icon size */
+.fs-7 {
+    font-size: 0.8rem;
+}
+
+/* Testimonial Card Styling */
+.testimonial-card {
+    background-color: #000000;
+    border: 2px solid #2a2a2a;
+    /* Subtle dark border from image */
+    overflow: hidden;
+    height: 100%;
+}
+
+/* Image on the left of the card */
+.card-img-wrapper {
+    width: 100%;
+    /* Responsive default */
+}
+
+.card-img-wrapper img {
+    height: 300px;
+    /* Base height for mobile */
+    object-position: center top;
+}
+
+/* Yellow Quote Icon Circle */
+.quote-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #f7e05f;
+    /* Specific yellow */
+    color: #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+/* Slider Buttons */
+.nav-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 0;
+    /* Square buttons */
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-white {
+    background-color: #ffffff;
+    color: #000;
+}
+
+.btn-warning {
+    background-color: #f7e05f;
+    border-color: #f7e05f;
+}
+
+/* Avatar Group Stacking */
+.avatar {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+}
+
+.test-text {
+    font-size: 35px;
+
+}
+
+/* Negative margin for overlap */
+.ms-n3 {
+    margin-left: -20px !important;
+}
+
+/* Responsive adjustments for the card */
+@media (min-width: 768px) {
+    .card-img-wrapper {
+        width: 40%;
+        /* Image takes 40% width on tablet/desktop */
+    }
+
+    .card-img-wrapper img {
+        height: 100%;
+        /* Spans full card height */
+    }
+
+    .card-content-wrapper {
+        width: 60%;
+        /* Content takes 60% */
+    }
+}
+
+
+/* Testimonial Carousel Smooth Transition */
+#testimonialCarousel .carousel-item {
+    transition: transform 0.8s ease-in-out;
+}
+
+#testimonialCarousel .carousel-inner {
+    overflow: hidden;
+}
+
+
+
+.testimonial-card {
+    position: relative;
+    background: #0b0b0b;
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* rotating border */
+.testimonial-card::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    background: conic-gradient(transparent,
+            #f5d26a,
+            transparent,
+            transparent);
+    animation: rotateBorder 2s linear infinite;
+    z-index: -2;
+}
+
+/* inner card background */
+.testimonial-card::after {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    background: #0b0b0b;
+    border-radius: 10px;
+    z-index: -1;
+}
+
+@keyframes rotateBorder {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
