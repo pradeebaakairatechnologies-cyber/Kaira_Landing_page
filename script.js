@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     // ================= CONTACT US MODAL LOGIC =================
     const contactBtn = document.getElementById('contactBtn');
+    const heroContactBtn = document.getElementById('heroContactBtn');
     const contactModal = document.getElementById('contactModal');
     const closeContactModal = document.getElementById('closeContactModal');
     const contactForm = document.getElementById('contactForm');
@@ -35,6 +36,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
             e.preventDefault();
             contactModal.classList.add('active');
             document.body.style.overflow = 'hidden'; // Prevent scrolling on body
+        });
+    }
+
+    // Open Modal from Hero Button
+    if (heroContactBtn && contactModal) {
+        heroContactBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            contactModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
         });
     }
 

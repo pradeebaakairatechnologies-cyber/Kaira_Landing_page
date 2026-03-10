@@ -17,8 +17,9 @@ body {
     background-color: var(--bg-color);
     color: var(--text-white);
     font-family: 'Outfit', sans-serif;
-    overflow-x: hidden;
+    overflow-x: clip;
 }
+
 
 /* ================= NAVBAR SECTION ================= */
 
@@ -28,6 +29,7 @@ body {
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     padding: 15px 0;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .nav-pill-container {
@@ -55,18 +57,27 @@ body {
 }
 
 .custom-toggler {
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border: 3px solid #a01d26 !important;
     border-radius: 8px;
-    padding: 8px 12px;
+    padding: 10px 14px;
+    background-color: #ffffff !important;
+    position: relative;
+    z-index: 1000;
+    left:-50px;
+}
+
+.custom-toggler .fa-bars {
+    color: #a01d26 !important;
+    font-size: 24px !important;
 }
 
 .custom-toggler:focus {
-    box-shadow: none !important;
+    box-shadow: 0 0 0 0.25rem rgba(160, 29, 38, 0.25) !important;
 }
 
 .contact-info i,
 .contact-info svg {
-    color: #a4d232;
+    color: #a01d26;
     opacity: 0.8;
 }
 
@@ -144,6 +155,14 @@ body {
 
     .main-navbar {
         padding: 15px 0;
+    }
+    
+    .custom-toggler {
+        display: none !important;
+    }
+    
+    .navbar-brand {
+        margin: 0 auto !important;
     }
 }
 
@@ -276,8 +295,8 @@ body {
     /* Approximation of a colorful G */
     background: conic-gradient(from 90deg,
             #ea4335 0deg 90deg,
-            #fbbc05 90deg 180deg,
-            #34a853 180deg 270deg,
+            #a01d26 90deg 180deg,
+            #a01d26 180deg 270deg,
             #4285f4 270deg 360deg);
     border-radius: 50%;
     clip-path: polygon(0 0, 100% 0, 100% 40%, 50% 40%, 50% 60%, 100% 60%, 100% 100%, 0 100%);
@@ -305,7 +324,7 @@ body {
 }
 
 .hero-title {
-    font-size: 90px;
+    font-size: 60px;
     font-weight: 700;
     line-height: 1.05;
     color: #000000;
@@ -320,10 +339,60 @@ body {
     font-weight: 200;
 }
 
+.hero-contact-btn {
+    background-color: #a01d26;
+    color: #ffffff;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.hero-contact-btn:hover {
+    background-color: #f51524;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(160, 29, 38, 0.3);
+}
+
+.hero-contact-btn:active {
+    transform: translateY(0);
+}
+
+.hero-contact-btn {
+    background-color: #a01d26;
+    color: #ffffff;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.hero-contact-btn:hover {
+    background-color: #f51524;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(160, 29, 38, 0.3);
+}
+
+.hero-contact-btn:active {
+    transform: translateY(0);
+}
+
 /* Rotating Shape */
 .hero-rotating-shape {
     position: absolute;
-    bottom: -80px;
+    bottom: 20px;
     right: 5%;
     width: 250px;
     height: auto;
@@ -512,9 +581,9 @@ body {
 /* --- NEW: Floating Icon Styles --- */
 .floating-icon-wrapper {
     position: absolute;
-    top: 30px;
+    top: 150px;
     /* Position vertically relative to the top of the container */
-    right: -10px;
+    right: -60px;
     /* Position horizontally on the far right outside the grid */
     width: 150px;
     /* Define the wrapper size */
@@ -620,6 +689,10 @@ body {
     margin-bottom: 25px;
 }
 
+.section-label svg {
+    stroke: #a01d26;
+}
+
 .main-title {
     font-size: 3rem;
     line-height: 1.1;
@@ -696,6 +769,12 @@ body {
     display: flex;
     flex-direction: column;
     gap: 25px;
+    align-items: center;
+}
+
+.sunburst-icon {
+    stroke: #ffffff !important;
+    animation: rotate-infinite 12s linear infinite;
 }
 
 .agency-desc {
@@ -739,6 +818,7 @@ body {
 .btn-more:hover .icon-circle {
     background: var(--primary-yellow);
 }
+
 
 .btn-more:hover .icon-circle svg line,
 .btn-more:hover .icon-circle svg polyline {
@@ -906,7 +986,7 @@ body {
 .marquee-item.pill {
     padding: 60px 80px;
     border-radius: 50px;
-    font-size: 74px;
+    font-size: 3rem;
     letter-spacing: 1px;
 
 }
@@ -945,10 +1025,10 @@ body {
 /* ================= WHY CHOOSE US ================= */
 
 .why-section {
-    background: url("/images/why-bg.jpg") center/cover no-repeat;
+    background: url("/images/why-bg.png") center/cover no-repeat;
     padding: 110px 0;
     position: relative;
-    color: #000;
+    color: #ffffff;
     height: 90vh;
     width: 100vw;
     margin-left: calc(-50vw + 50%);
@@ -1180,7 +1260,8 @@ body {
 }
 .btn-warning {
     background-color: #a01d26;
-    border-color: #f7e05f;
+    border-color: #ffffff;
+    
 }
 
 /* Avatar Group Stacking */
@@ -1221,6 +1302,20 @@ body {
     }
 }
 
+@media (max-width: 767px) {
+    .testimonial-section .row {
+        flex-direction: column-reverse;
+    }
+    
+    .testimonial-section .col-lg-5 {
+        text-align: center;
+    }
+    
+    .testimonial-section .sub-title {
+        justify-content: center;
+    }
+}
+
 
 /* Testimonial Carousel Smooth Transition */
 #testimonialCarousel .carousel-item {
@@ -1247,7 +1342,7 @@ body {
     position: absolute;
     inset: -2px;
     background: conic-gradient(transparent,
-            #f5d26a,
+            #a01d26,
             transparent,
             transparent);
     animation: rotateBorder 2s linear infinite;
@@ -1558,7 +1653,6 @@ body {
 
 .services-stack-section {
     position: relative;
-    /* padding: 100px 0; */
     overflow: visible;
 }
 
@@ -1604,8 +1698,8 @@ body {
 
 .works-title {
     position: relative;
-    font-size: 15vw;
-    font-weight: 600;
+    font-size: 2rem;
+    font-weight: 500;
     color: #e4b536;
     z-index: 1;
     /* Keep above globe but below cards */
@@ -1617,7 +1711,7 @@ body {
 
 @media (min-width: 1200px) {
     .works-title {
-        font-size: 180px;
+        font-size: 100px;
     }
 
     .works-globe {
@@ -1641,22 +1735,16 @@ body {
     position: relative;
     display: flex;
     flex-direction: column;
-    /* Big margin bottom gives space to scroll before next card covers */
     padding-bottom: 50px;
     z-index: 2;
-    /* Ensure the wrapper wrapper is above the works header */
     margin-top: -10vh;
-    /* Negative margin pulls the cards up over the globe */
 }
 
 .service-stack-card {
     position: sticky;
     top: calc(10vh + var(--index) * 20px);
-    /* Creates the staggered stack effect */
     margin-bottom: 20px;
-    /* Reduced spacing between cards */
     height: 70vh;
-    /* Fixed inner height */
     display: flex;
     align-items: center;
     background-color: transparent;
@@ -1703,7 +1791,7 @@ body {
 }
 
 .ssc-title {
-    font-size: 40px;
+    font-size: 3rem;
     font-weight: 600;
     margin-bottom: 20px;
     line-height: 1.1;
@@ -1810,7 +1898,7 @@ body {
 
 @media (max-width: 768px) {
     .service-stack-card {
-        margin-bottom: 80vh;
+        margin-bottom: 20px;
     }
 
     .ssc-left {
@@ -1877,8 +1965,8 @@ body {
 }
 
 .social-btn:hover {
-    background-color: #a4d232;
-    border-color: #a4d232;
+    background-color: #ffffff;
+    border-color: #f8f8f8;
     color: #000;
     transform: translateY(-3px);
 }
@@ -1889,7 +1977,7 @@ body {
 }
 
 .footer-links a {
-    color: #888;
+    color: #fff;
     text-decoration: none;
     transition: all 0.3s ease;
     display: inline-flex;
@@ -1902,12 +1990,13 @@ body {
     display: inline-block;
     width: 5px;
     height: 5px;
-    background-color: #a4d232;
+    background-color: #a01d26;
     border-radius: 50%;
     margin-right: 10px;
     opacity: 0;
     transform: scale(0);
     transition: all 0.3s ease;
+    text-decoration: none;
 }
 
 .footer-links a:hover {
@@ -2017,8 +2106,8 @@ body {
 }
 
 .contact-modal-close:hover {
-    background: #c5ff41;
-    color: #000;
+    background: #a01d26;
+    color: #ffffff;
     transform: rotate(90deg);
 }
 
@@ -2074,7 +2163,7 @@ body {
 
 .floating-input .form-control:focus {
     outline: none;
-    border-color: #a4d232;
+    border-color: #a01d26;
     box-shadow: 0 0 0 4px rgba(164, 210, 50, 0.15);
 }
 
@@ -2097,7 +2186,7 @@ body {
     top: -10px;
     left: 12px;
     font-size: 12px;
-    color: #81a823;
+    color: #a01d26;
     font-weight: 600;
     background: #ffffff;
 }
@@ -2124,8 +2213,8 @@ body {
 
 /* Submit Button */
 .btn-submit-contact {
-    background: #c5ff41;
-    color: #000;
+    background: #a01d26;
+    color: #ffffff;
     border: none;
     padding: 16px;
     border-radius: 12px;
@@ -2153,7 +2242,7 @@ body {
 }
 
 .btn-submit-contact:hover {
-    background: #a4d232;
+    background: #a01d26;
     transform: translateY(-2px);
     box-shadow: 0 10px 20px rgba(197, 255, 65, 0.2);
 }
@@ -2176,4 +2265,45 @@ body {
     .contact-modal-header h2 {
         font-size: 24px;
     }
+}
+
+
+/* Testimonial Button Hover */
+.btn-warning.nav-btn:hover {
+    background-color: #fff !important;
+    color: #000 !important;
+}
+
+.btn-warning.nav-btn:hover i {
+    color: #000 !important;
+}
+
+.btn-white.nav-btn:hover {
+    background-color: transparent !important;
+    border-color: #fff !important;
+    color: #fff !important;
+}
+
+.btn-white.nav-btn:hover i {
+    color: #fff !important;
+}
+
+
+/* Why Choose Us - All White Text */
+.why-section * {
+    color: #fff !important;
+}
+
+.why-section .icon-box {
+    border-color: #fff !important;
+}
+
+.why-section .why-feature {
+    border-bottom-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+
+/* Hide Service Card Buttons */
+.ssc-btn {
+    display: none !important;
 }

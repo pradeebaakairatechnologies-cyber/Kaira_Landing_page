@@ -14,6 +14,7 @@
 </head>
 
 <body>
+    
     <!-- ================= NAVBAR SECTION ================= -->
     <nav class="navbar navbar-expand-lg fixed-top main-navbar">
         <div class="container-fluid px-lg-5">
@@ -56,19 +57,19 @@
                 <!-- Center Links (Pill) -->
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0 nav-pill-container align-items-center">
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Home</a>
+                        <a class="nav-link text-white" href="#home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="#about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
+                        <a class="nav-link" href="#services">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Why Choose Us</a>
+                        <a class="nav-link" href="#why-choose-us">Why Choose Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Client Testimonials</a>
+                        <a class="nav-link" href="#testimonials">Client Testimonials</a>
                     </li>
                 </ul>
 
@@ -101,7 +102,7 @@
     </nav>
 
     <!-- ================= HERO SECTION ================= -->
-    <section class="hero-section">
+    <section class="hero-section" id="home">
         <!-- Background Curve Image -->
         <div class="hero-bg">
             <!-- <img src="images/heroline.png" alt="Hero Background"> -->
@@ -116,74 +117,18 @@
                     <!-- The user will replace this src with their person image -->
                     <img src="/images/heroimg.jpg" alt="Hero Person Placeholder" class="hero-person img-fluid">
 
-                    <!-- Floating Widget 1: Graph -->
-                    <!-- <div class="hero-widget widget-graph" data-aos="fade-up" data-aos-delay="200">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <div>
-                                <span class="widget-title">New Audience Members</span>
-                                <div class="widget-value">1.2k <i
-                                        class="fa-solid fa-arrow-trend-up text-danger fs-6 ms-1"></i></div>
-                            </div>
-                            <div class="avatar-group d-flex">
-                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User"
-                                    class="rounded-circle avatar-sm border border-2 border-white">
-                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User"
-                                    class="rounded-circle avatar-sm border border-2 border-white ms-n2">
-                                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="User"
-                                    class="rounded-circle avatar-sm border border-2 border-white ms-n2">
-                            </div>
-                        </div>
-                        <div class="fake-graph mt-3">
-                            <svg viewBox="0 0 100 30" class="w-100" preserveAspectRatio="none">
-                                <path
-                                    d="M0 25 L 10 15 L 20 25 L 30 10 L 40 20 L 50 5 L 60 15 L 70 5 L 80 20 L 90 5 L 100 15"
-                                    fill="none" stroke="#ff7b5a" stroke-width="1.5" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                                <path d="M0 30 L 15 20 L 30 30 L 45 20 L 60 30 L 75 20 L 90 30 L 100 20" fill="none"
-                                    stroke="#f6d5ce" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                            <div class="d-flex flex-column gap-1 mt-2">
-                                <div style="height: 4px; border-radius: 4px; background: #eee; width: 100%;"></div>
-                                <div style="height: 4px; border-radius: 4px; background: #eee; width: 60%;"></div>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    <!-- Floating Widget 2: Google Ads -->
-                    <!-- <div class="hero-widget widget-ads" data-aos="fade-up" data-aos-delay="400">
-                        <div class="d-flex justify-content-between align-items-start position-relative">
-
-                            
-                            <div
-                                class="verified-badge bg-success bg-opacity-10 text-success rounded-pill px-2 py-1 fs-8 fw-bold">
-                                <i class="fa-solid fa-check-circle me-1"></i> VERIFIED
-                            </div>
-
-                            <div class="d-flex gap-3 align-items-center w-100 mt-2">
-                                <div class="g-icon-wrapper">
-                                    <div class="g-logo-shape"></div>
-                                </div>
-                                <div class="mt-4 pt-1">
-                                    <div class="widget-value fs-6 mb-1">Google Ads</div>
-                                    <div class="widget-stars text-warning fs-8 mb-1">
-                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                                            class="fa-solid fa-star"></i>
-                                    </div>
-                                    <div class="widget-title mt-1 text-muted fs-8">out of 5</div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div> -->
+                
                 </div>
 
                 <!-- Right Side: Text & Pill -->
                 <div class="col-lg-7 hero-right" data-aos="fade-left">
-                    <span class="hero-pill">Brand With Digital Marketing</span>
-                    <h1 class="hero-title mt-4 mb-4">Digital Marketing<br>Solutions</h1>
-                    <p class="hero-desc">Digital marketing helps businesses grow by reaching the right audience at the
-                        right time. Through strategies like social media marketing ..</p>
+                    <span class="hero-pill">Kaira Technologies</span>
+                    <h1 class="hero-title mt-4 mb-4">Best Digital Marketing Company in Kovilpatti</h1>
+                    <p class="hero-desc">Struggling to get noticed online? Kaira Technologies is here to help your business smoothly reach the top.</p>
+                    <button class="hero-contact-btn mt-4" id="heroContactBtn">
+                        Get In Touch
+                        <i class="fas fa-arrow-right ms-2"></i>
+                    </button>
                 </div>
             </div>
         </div>
@@ -198,7 +143,7 @@
     </section>
 
     <!-- ================= ABOUT SECTION ================= -->
-    <section class="about-section pt-10 mt-5">
+    <section class="about-section pt-10 mt-5" id="about">
         <div class="container1">
             <div class="floating-icon-wrapper">
                 <img src="images/about.png" alt="Floating Coil Icon" class="floating-icon">
@@ -214,23 +159,23 @@
             <div class="right-box">
                 <div class="content-text">
                     <div class="section-label">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#facc15" stroke-width="2"
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" class="label-icon">
                             <path d="M12 2v2M17 5l-10 14M22 12H2M19 19L5 5" />
                         </svg>
                         <span class="text-dark">About Company</span>
                     </div>
-                    <h1 class="main-title text-dark">Best Digital Marketing Company in Kovilpatti | We Make It Impossible to
-                        Ignore</h1>
+                    <h2 class="main-title text-dark">We Make It Impossible to
+                        Ignore</h2>
                 </div>
             </div>
 
             <div class="overlap-card">
                 <div class="card-left">
                     <div class="stats">
-                        <span class="number text-light">30</span><span class="plus text-light">+</span>
+                        <span class="number text-light">10</span><span class="plus text-light">+</span>
                     </div>
-                    <p class="stats-desc">Industrial Years of<br>Experience</p>
+                    <p class="stats-desc">Years of<br>Experience</p>
 
                 </div>
                 <div class="card-right">
@@ -243,16 +188,6 @@
                         Kovilpatti, empowering businesses of every size to thrive online. From high-converting Meta Ads
                         and powerful SEO to stunning web design and viral brand videos — we craft strategies that don't
                         just look good, they deliver real, measurable growth.</p>
-                    <a href="#" class="btn-more">
-                        More About
-                        <span class="icon-circle">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="7" y1="17" x2="17" y2="7"></line>
-                                <polyline points="7 7 17 7 17 17"></polyline>
-                            </svg>
-                        </span>
-                    </a>
                 </div>
             </div>
         </div>
@@ -262,31 +197,31 @@
     <section class="marquee-section">
         <div class="marquee-track">
             <div class="marquee-content">
-                <div class="marquee-item pill">INNOVATION</div>
+                <div class="marquee-item pill">WEB & APP DEVELOPMENT</div>
                 <div class="marquee-item circle"><img src="images/marque.png" alt="icon" class="marquee-icon"></div>
-                <div class="marquee-item pill">DESIGNING</div>
+                <div class="marquee-item pill">VIDEO & REELS CREATION</div>
                 <div class="marquee-item circle"><img src="images/marque.png" alt="icon" class="marquee-icon"></div>
-                <div class="marquee-item pill">INNOVATION</div>
+                <div class="marquee-item pill">SEO & GMB OPTIMIZATION</div>
                 <div class="marquee-item circle"><img src="images/marque.png" alt="icon" class="marquee-icon"></div>
-                <div class="marquee-item pill">DESIGNING</div>
+                <div class="marquee-item pill">WHATSAPP AUTOMATION</div>
                 <div class="marquee-item circle"><img src="images/marque.png" alt="icon" class="marquee-icon"></div>
-                <div class="marquee-item pill">INNOVATION</div>
+                <div class="marquee-item pill">PAID ADS</div>
                 <div class="marquee-item circle"><img src="images/marque.png" alt="icon" class="marquee-icon"></div>
-                <div class="marquee-item pill">DESIGNING</div>
+                <div class="marquee-item pill">SOCIAL MEDIA MARKETING</div>
                 <div class="marquee-item circle"><img src="images/marque.png" alt="icon" class="marquee-icon"></div>
             </div>
             <div class="marquee-content" aria-hidden="true">
-                <div class="marquee-item pill">INNOVATION</div>
+                <div class="marquee-item pill">WEB & APP DEVELOPMENT</div>
                 <div class="marquee-item circle"><img src="images/marque.png" alt="icon" class="marquee-icon"></div>
-                <div class="marquee-item pill">DESIGNING</div>
+                <div class="marquee-item pill">VIDEO & REELS CREATION</div>
                 <div class="marquee-item circle"><img src="images/marque.png" alt="icon" class="marquee-icon"></div>
-                <div class="marquee-item pill">INNOVATION</div>
+                <div class="marquee-item pill">SEO & GMB OPTIMIZATION</div>
                 <div class="marquee-item circle"><img src="images/marque.png" alt="icon" class="marquee-icon"></div>
-                <div class="marquee-item pill">DESIGNING</div>
+                <div class="marquee-item pill">WHATSAPP AUTOMATION</div>
                 <div class="marquee-item circle"><img src="images/marque.png" alt="icon" class="marquee-icon"></div>
-                <div class="marquee-item pill">INNOVATION</div>
+                <div class="marquee-item pill">PAID ADS</div>
                 <div class="marquee-item circle"><img src="images/marque.png" alt="icon" class="marquee-icon"></div>
-                <div class="marquee-item pill">DESIGNING</div>
+                <div class="marquee-item pill">SOCIAL MEDIA MARKETING</div>
                 <div class="marquee-item circle"><img src="images/marque.png" alt="icon" class="marquee-icon"></div>
             </div>
         </div>
@@ -295,7 +230,7 @@
 
 
     <!-- ================= SERVICES STACK SECTION ================= -->
-    <section class="services-stack-section">
+    <section class="services-stack-section" id="services">
 
         <div class="works-header">
             <img src="images/service.png" alt="Globe Background" class="works-globe">
@@ -310,9 +245,8 @@
                         <div class="ssc-left ">
                             <div class="ssc-number">01</div>
                             <div class="ssc-content">
-                                <h3 class="ssc-title">Axior Webflow Solutions</h3>
-                                <p class="ssc-desc text-light">Nexella adopts client-centric approach main business's and
-                                    challenge latest digital technology</p>
+                                <h3 class="ssc-title">Web & App Development</h3>
+                                <p class="ssc-desc text-light">We build fast, stunning websites and apps that work for your business 24/7.</p>
                                 <div class="ssc-date">16 May,2025</div>
                                 <a href="#" class="ssc-btn">Click To See Details <i
                                         class="fas fa-arrow-right text-dark bg-transparent"></i></a>
@@ -329,16 +263,15 @@
                         <div class="ssc-left ">
                             <div class="ssc-number">02</div>
                             <div class="ssc-content">
-                                <h3 class="ssc-title">Axior Webflow Solutions</h3>
-                                <p class="ssc-desc text-light">Nexella adopts client-centric approach main business's and
-                                    challenge latest digital technology</p>
+                                <h3 class="ssc-title">Video & Reels Creation</h3>
+                                <p class="ssc-desc text-light">Scroll-stopping videos and reels that make your brand impossible to ignore.</p>
                                 <div class="ssc-date">16 May,2025</div>
                                 <a href="#" class="ssc-btn">Click To See Details <i
                                         class="fas fa-arrow-right text-dark bg-transparent"></i></a>
                             </div>
                         </div>
                         <div class="ssc-right">
-                            <img src="/images/img1.jpg" alt="Service 1">
+                            <img src="/images/img1.jpg" alt="Service 2">
                         </div>
                     </div>
                 </div>
@@ -348,16 +281,15 @@
                         <div class="ssc-left ">
                             <div class="ssc-number">03</div>
                             <div class="ssc-content">
-                                <h3 class="ssc-title">Axior Webflow Solutions</h3>
-                                <p class="ssc-desc text-light">Nexella adopts client-centric approach main business's and
-                                    challenge latest digital technology</p>
+                                <h3 class="ssc-title">SEO & GMB Optimization</h3>
+                                <p class="ssc-desc text-light">Get found on Google first, before your competitors even show up.</p>
                                 <div class="ssc-date">16 May,2025</div>
                                 <a href="#" class="ssc-btn">Click To See Details <i
                                         class="fas fa-arrow-right text-dark bg-transparent"></i></a>
                             </div>
                         </div>
                         <div class="ssc-right">
-                            <img src="/images/img1.jpg" alt="Service 1">
+                            <img src="/images/img1.jpg" alt="Service 3">
                         </div>
                     </div>
                 </div>
@@ -367,16 +299,15 @@
                         <div class="ssc-left ">
                             <div class="ssc-number">04</div>
                             <div class="ssc-content">
-                                <h3 class="ssc-title">Axior Webflow Solutions</h3>
-                                <p class="ssc-desc text-light">Nexella adopts client-centric approach main business's and
-                                    challenge latest digital technology</p>
+                                <h3 class="ssc-title">Whatsapp Automation</h3>
+                                <p class="ssc-desc text-light">Turn every message into a sale with smart, instant WhatsApp responses.</p>
                                 <div class="ssc-date">16 May,2025</div>
                                 <a href="#" class="ssc-btn">Click To See Details <i
                                         class="fas fa-arrow-right text-dark bg-transparent"></i></a>
                             </div>
                         </div>
                         <div class="ssc-right">
-                            <img src="/images/img1.jpg" alt="Service 1">
+                            <img src="/images/img1.jpg" alt="Service 4">
                         </div>
                     </div>
                 </div>
@@ -385,16 +316,15 @@
                         <div class="ssc-left ">
                             <div class="ssc-number">05</div>
                             <div class="ssc-content">
-                                <h3 class="ssc-title">Axior Webflow Solutions</h3>
-                                <p class="ssc-desc text-light">Nexella adopts client-centric approach main business's and
-                                    challenge latest digital technology</p>
+                                <h3 class="ssc-title">Paid Ads</h3>
+                                <p class="ssc-desc text-light">Every rupee you spend works harder, targeted ads that bring real leads fast.</p>
                                 <div class="ssc-date">16 May,2025</div>
                                 <a href="#" class="ssc-btn">Click To See Details <i
                                         class="fas fa-arrow-right text-dark bg-transparent"></i></a>
                             </div>
                         </div>
                         <div class="ssc-right">
-                            <img src="/images/img1.jpg" alt="Service 1">
+                            <img src="/images/img1.jpg" alt="Service 5">
                         </div>
                     </div>
                 </div>
@@ -404,16 +334,15 @@
                         <div class="ssc-left ">
                             <div class="ssc-number">06</div>
                             <div class="ssc-content">
-                                <h3 class="ssc-title">Axior Webflow Solutions</h3>
-                                <p class="ssc-desc text-light">Nexella adopts client-centric approach main business's and
-                                    challenge latest digital technology</p>
+                                <h3 class="ssc-title">Social Media Marketing</h3>
+                                <p class="ssc-desc text-light">We grow your followers, boost engagement, and turn likes into loyal customers.</p>
                                 <div class="ssc-date">16 May,2025</div>
                                 <a href="#" class="ssc-btn">Click To See Details <i
                                         class="fas fa-arrow-right text-dark bg-transparent"></i></a>
                             </div>
                         </div>
                         <div class="ssc-right">
-                            <img src="/images/img1.jpg" alt="Service 1">
+                            <img src="/images/img1.jpg" alt="Service 6">
                         </div>
                     </div>
                 </div>
@@ -425,7 +354,7 @@
 
 
 
-    <section class="why-section">
+    <section class="why-section" id="why-choose-us">
 
         <div class="container">
 
@@ -438,9 +367,9 @@
                     <p><img src="images/mul.svg" class="rotating-mul"> Why Choose Us?</p>
 
                     <h2 class="why-title">
-                        Empowering our Brands<br>
-                        Innovation Data-Driven<br>
-                        Digital solutions
+                        Why Settle for Less <br>
+                         When You Can Have <br>the Best?
+
                     </h2>
 
                     <div class="why-feature">
@@ -452,8 +381,8 @@
                         </div>
 
                         <div>
-                            <h6>24 Hours Support</h6>
-                            <p>Nexella adopts client-centric approach business’s unique goals</p>
+                            <h6>We Never Clock Out</h6>
+                            <p>We provide round-the-clock support because your business never sleeps and neither do we.</p>
                         </div>
 
                     </div>
@@ -468,7 +397,7 @@
 
                         <div>
                             <h6>Super Expert Team</h6>
-                            <p>Nexella adopts client-centric approach business’s unique goals</p>
+                            <p>Our expert team crafts personalized strategies to grow your brand online.</p>
                         </div>
 
                     </div>
@@ -520,7 +449,7 @@ Explore More
 
 
 
-    <section class="testimonial-section py-5 my-5">
+    <section class="testimonial-section py-5 my-5" id="testimonials">
         <div class="container py-lg-7">
             <div class="row align-items-center gx-lg-8">
 
@@ -531,7 +460,7 @@ Explore More
                             <div class="carousel-item active">
                                 <div class="testimonial-card d-flex flex-column flex-md-row">
                                     <div class="card-img-wrapper">
-                                        <img src="/images/test1.png" alt="David T. Alex"
+                                        <img src="/images/test1.png" alt="Mr VG Pandian"
                                             class="img-fluid object-fit-cover h-100">
                                     </div>
 
@@ -542,18 +471,15 @@ Explore More
                                                 <div class="quote-icon me-3">
                                                     <i class="fas fa-quote-right"></i>
                                                 </div>
-                                                <h3 class="fw-bold fs-4 mb-0">Creative Works!</h3>
+                                                <h3 class="fw-bold fs-4 mb-0">Excellent GMB Service!</h3>
                                             </div>
-                                            <p class="text-light lh-lg mb-5">At Nexella, we don't just run
-                                                campaigns—we build digital relationships that grow brands and
-                                                delivered measurable impact. Our success lies in making our clients
-                                                unforgettable online.</p>
+                                            <p class="text-light lh-lg mb-5">I recently set up my business Google My Business (GMB) profile with Kaira Technologies, and I am extremely satisfied with their service.</p>
                                         </div>
 
                                         <div class="d-flex justify-content-between align-items-end mt-auto">
                                             <div class="author-info">
-                                                <h5 class="fw-semibold mb-1">David T. Alex</h5>
-                                                <p class="text-light mb-0">HR Manager — Nexella IT</p>
+                                                <h5 class="fw-semibold mb-1">Mr VG Pandian</h5>
+                                                <p class="text-light mb-0">Thirumalaa Cars</p>
                                             </div>
 
                                             <div class="slider-nav d-flex">
@@ -585,16 +511,13 @@ Explore More
                                                 </div>
                                                 <h3 class="fw-bold fs-4 mb-0">Outstanding Service!</h3>
                                             </div>
-                                            <p class="text-light lh-lg mb-5">Working with Nexella transformed
-                                                our digital presence completely. Their strategic approach and
-                                                attention to detail helped us achieve results beyond our
-                                                expectations.</p>
+                                            <p class="text-light lh-lg mb-5">We had nice experience with Kaira Technologies. They understood our requirements very well and provided us with good quality solution for promotion of our business. Thank you team.</p>
                                         </div>
 
                                         <div class="d-flex justify-content-between align-items-end mt-auto">
                                             <div class="author-info">
-                                                <h5 class="fw-semibold mb-1">Sarah Johnson</h5>
-                                                <p class="text-light mb-0">CEO — TechStart Inc</p>
+                                                <h5 class="fw-semibold mb-1">Hari Krishna Traders</h5>
+                                                <!-- <p class="text-light mb-0">CEO — TechStart Inc</p> -->
                                             </div>
 
                                             <div class="slider-nav d-flex">
@@ -613,7 +536,7 @@ Explore More
                             <div class="carousel-item">
                                 <div class="testimonial-card d-flex flex-column flex-md-row">
                                     <div class="card-img-wrapper">
-                                        <img src="/images/test1.png" alt="Michael Chen"
+                                        <img src="/images/test1.png" alt="Nikil Manoj V"
                                             class="img-fluid object-fit-cover h-100">
                                     </div>
 
@@ -624,18 +547,15 @@ Explore More
                                                 <div class="quote-icon me-3">
                                                     <i class="fas fa-quote-right"></i>
                                                 </div>
-                                                <h3 class="fw-bold fs-4 mb-0">Highly Recommended!</h3>
+                                                <h3 class="fw-bold fs-4 mb-0">Best Support Service!</h3>
                                             </div>
-                                            <p class="text-light lh-lg mb-5">The team at Nexella is
-                                                professional, creative, and results-driven. They understood our
-                                                vision and delivered a campaign that exceeded all our goals.</p>
+                                            <p class="text-light lh-lg mb-5">Excellent service, Best support service by kaira staffs for Digital marketing</p>
                                         </div>
 
                                         <div class="d-flex justify-content-between align-items-end mt-auto">
                                             <div class="author-info">
-                                                <h5 class="fw-semibold mb-1">Michael Chen</h5>
-                                                <p class="text-light mb-0">Marketing Director — Global Solutions
-                                                </p>
+                                                <h5 class="fw-semibold mb-1">Nikil Manoj V</h5>
+                                                
                                             </div>
 
                                             <div class="slider-nav d-flex">
@@ -658,14 +578,14 @@ Explore More
                     <span class="sub-title d-flex align-items-center test text-uppercase fw-semibold mb-2">
                         <i class="fas fa-asterisk me-2 fs-7"></i> Testimonial
                     </span>
-                    <h1 class="display-4 fw-bold lh-sm mb-4 test-text">Real Stories from Happy Customer’s drive here
-                        Success Business</h1>
+                    <h2 class="display-4 fw-bold lh-sm mb-4 test-text">Businesses Trusted Us<br>Here's What Happened Next
+</h2>
 
                     <hr class="border-secondary opacity-50 my-5">
 
                     <div class="d-flex align-items-center mt-5">
                         <div class="customer-stats d-flex align-items-center">
-                            <h2 class="display-5 fw-bold test mb-0 me-4">6K+</h2>
+                            <h2 class="display-5 fw-bold test mb-0 me-4">1000+</h2>
 
                             <div class="avatar-group d-flex">
                                 <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Customer"
@@ -717,11 +637,10 @@ Explore More
                             <span
                                 style="width: 6px; height: 6px; background: #a4d232; border-radius: 50%; display: inline-block;"></span>
                         </div>
-                        <h3 class="m-0 fw-bold fs-4">Digilink</h3>
+                        <h3 class="m-0 fw-bold fs-4">Kaira Technologies</h3>
                     </div>
                     <p class="footer-desc mb-4 text-light lh-lg">
-                        Through critical analysis and creative inquiry, our mission is to understand the
-                        complexities human.
+                        We Are Kaira Technologies Built for growth. We are a passionate team of digital marketers, designers, and developers on a mission to make every business unstoppable online. Your success is our only goal.
                     </p>
                     <div class="footer-socials d-flex gap-2">
                         <a href="#" class="social-btn"><i class="fa-brands fa-x-twitter"></i></a>
@@ -734,12 +653,12 @@ Explore More
                 <!-- Column 2: Quick Links -->
                 <div class="col-lg-2 col-md-6">
                     <h4 class="footer-heading mb-4 fs-5 fw-bold">Quick Links</h4>
-                    <ul class="footer-links list-unstyled m-0 p-0">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Portfolio</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                    <ul class="footer-links list-unstyled m-0 p-0 text-light">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#why-choose-us">Why Choose Us</a></li>
+                        <li><a href="#testimonials">Client Testimonials</a></li>
                     </ul>
                 </div>
 
@@ -747,11 +666,12 @@ Explore More
                 <div class="col-lg-3 col-md-6">
                     <h4 class="footer-heading mb-4 fs-5 fw-bold">Our Services</h4>
                     <ul class="footer-links list-unstyled m-0 p-0">
-                        <li><a href="#">Mobile & App Design</a></li>
-                        <li><a href="#">Branding & Identity</a></li>
-                        <li><a href="#">Consultation</a></li>
-                        <li><a href="#">UI/UX Design</a></li>
-                        <li><a href="#">System Creation</a></li>
+                        <li><a href="#services">Web & App Development</a></li>
+                        <li><a href="#services">Video & Reels Creation</a></li>
+                        <li><a href="#services">SEO & GMB Optimization</a></li>
+                        <li><a href="#services">Whatsapp Automation</a></li>
+                        <li><a href="#services">Paid Ads</a></li>
+                        <li><a href="#services">Social Media Marketing</a></li>
                     </ul>
                 </div>
 
@@ -760,7 +680,7 @@ Explore More
                     <h4 class="footer-heading mb-4 fs-5 fw-bold">Address</h4>
                     <div class="footer-address d-flex flex-column gap-3 text-light lh-lg">
                         <div>
-                            <i class="fa-solid fa-location-dot me-2 test"></i>
+                            <i class="fa-solid fa-location-dot me-2 text-light"></i>
                             <span>123 Main Street, Business Ave,<br>Kovilpatti, TN 628501</span>
                         </div>
                         <div>
@@ -859,7 +779,7 @@ Explore More
 
         let counter = document.getElementById("counter");
         let count = 0;
-        let target = 6000;
+        let target = 1000;
 
         let interval = setInterval(() => {
 
