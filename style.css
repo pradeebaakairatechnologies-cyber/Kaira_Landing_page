@@ -11,13 +11,17 @@
     box-sizing: border-box;
 }
 
+html, body {
+    overflow-x: clip;
+}
+
 body {
     margin: 0;
     padding: 0;
     background-color: var(--bg-color);
     color: var(--text-white);
     font-family: 'Outfit', sans-serif;
-    overflow-x: clip;
+    /* overflow: hidden; */
 }
 
 
@@ -36,7 +40,7 @@ body {
     background-color: #a01d26;
     border-radius: 50px;
     padding: 2px 20px;
-   
+
 }
 
 .nav-pill-container .nav-item {
@@ -63,7 +67,7 @@ body {
     background-color: #ffffff !important;
     position: relative;
     z-index: 1000;
-    left:-50px;
+    left: -50px;
 }
 
 .custom-toggler .fa-bars {
@@ -156,13 +160,30 @@ body {
     .main-navbar {
         padding: 15px 0;
     }
-    
+
     .custom-toggler {
         display: none !important;
     }
-    
+
     .navbar-brand {
         margin: 0 auto !important;
+    }
+
+    .navbar-collapse {
+        text-align: center;
+    }
+
+    .nav-pill-container {
+        justify-content: center !important;
+    }
+
+    .right-actions {
+        align-items: center !important;
+        width: 100%;
+    }
+
+    .contact-info {
+        justify-content: center;
     }
 }
 
@@ -172,9 +193,353 @@ body {
     position: relative;
     min-height: 100vh;
     padding-top: 100px;
-    /* Accounts for fixed navbar */
     overflow: hidden;
-    background-color: var(--bg-color);
+    background: linear-gradient(135deg, #a01d26, #e9f3ff);
+    /* background-color: #a01d26; #e9f3ff*/
+
+
+    
+}
+
+/* Bubble Effect */
+.hero-bubbles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.bubble {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.9;
+    overflow: hidden;
+
+    /* Perfect glass material with transparency */
+    background: radial-gradient(circle at 30% 30%,
+            rgba(255, 255, 255, 0.8) 0%,
+            rgba(255, 255, 255, 0.4) 15%,
+            rgba(160, 29, 38, 0.12) 40%,
+            rgba(160, 29, 38, 0.18) 60%,
+            rgba(100, 150, 255, 0.1) 80%,
+            rgba(255, 255, 255, 0.05) 100%);
+
+    /* Thin glass edge with refraction and brand color */
+    border: 1.5px solid rgba(160, 29, 38, 0.4);
+
+    /* Glassmorphism blur effect */
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+
+    /* 3D floating shadow and depth */
+    box-shadow:
+        /* Outer soft shadow for floating effect with brand color */
+        0 20px 60px rgba(160, 29, 38, 0.3),
+        0 10px 30px rgba(160, 29, 38, 0.2),
+        0 5px 15px rgba(0, 0, 0, 0.1),
+        /* Inner glow - top light */
+        inset 0 1px 0 rgba(255, 255, 255, 0.6),
+        /* Inner glow - soft blue tint */
+        inset 0 -20px 40px rgba(100, 150, 255, 0.08),
+        /* Inner depth shadow */
+        inset 20px 20px 80px rgba(255, 255, 255, 0.25),
+        inset -20px -20px 60px rgba(160, 29, 38, 0.08),
+        /* Outer glow with brand color */
+        0 0 40px rgba(160, 29, 38, 0.25);
+
+    /* Smooth transitions */
+    transition: transform 0.3s ease;
+}
+
+/* Strong light reflection highlight on top-left */
+.bubble::before {
+    content: '';
+    position: absolute;
+    top: 8%;
+    left: 12%;
+    width: 45%;
+    height: 45%;
+    background: radial-gradient(circle at 40% 40%,
+            rgba(255, 255, 255, 0.95) 0%,
+            rgba(255, 255, 255, 0.7) 20%,
+            rgba(255, 255, 255, 0.3) 50%,
+            transparent 80%);
+    border-radius: 50%;
+    filter: blur(6px);
+    animation: shineMove 6s infinite ease-in-out;
+}
+
+/* Light shine sweep effect */
+.bubble::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 100%);
+    transform: skewX(-25deg);
+    animation: shineSweep 6s infinite;
+}
+
+.bubble:nth-child(1) {
+    width: 150px;
+    height: 150px;
+    left: 15%;
+    top: 20%;
+    animation: floatRandom1 25s infinite ease-in-out;
+}
+
+.bubble:nth-child(2) {
+    width: 90px;
+    height: 90px;
+    left: 45%;
+    top: 60%;
+    animation: floatRandom2 18s infinite ease-in-out;
+}
+
+.bubble:nth-child(3) {
+    width: 80px;
+    height: 80px;
+    left: 75%;
+    top: 85%;
+    animation: floatRandom3 20s infinite ease-in-out;
+}
+
+.bubble:nth-child(4) {
+    width: 50px;
+    height: 50px;
+    left: 60%;
+    top: 30%;
+    animation: floatRandom4 12s infinite ease-in-out;
+}
+
+.bubble:nth-child(5) {
+    width: 45px;
+    height: 45px;
+    left: 30%;
+    top: 80%;
+    animation: floatRandom5 14s infinite ease-in-out;
+}
+
+.bubble:nth-child(6) {
+    width: 60px;
+    height: 60px;
+    left: 90%;
+    top: 10%;
+    animation: floatRandom6 16s infinite ease-in-out;
+}
+
+/* Random floating animations for each bubble with parallax variables applied */
+@keyframes floatRandom1 {
+
+    0%,
+    100% {
+        transform: translate(calc(0px + var(--mouse-x, 0px)), calc(0px + var(--mouse-y, 0px))) scale(1);
+    }
+
+    25% {
+        transform: translate(calc(30px + var(--mouse-x, 0px)), calc(-40px + var(--mouse-y, 0px))) scale(1.05);
+    }
+
+    50% {
+        transform: translate(calc(-20px + var(--mouse-x, 0px)), calc(-60px + var(--mouse-y, 0px))) scale(1.1);
+    }
+
+    75% {
+        transform: translate(calc(40px + var(--mouse-x, 0px)), calc(-30px + var(--mouse-y, 0px))) scale(1.05);
+    }
+}
+
+@keyframes floatRandom2 {
+
+    0%,
+    100% {
+        transform: translate(calc(0px + var(--mouse-x, 0px)), calc(0px + var(--mouse-y, 0px))) scale(1);
+    }
+
+    25% {
+        transform: translate(calc(-40px + var(--mouse-x, 0px)), calc(50px + var(--mouse-y, 0px))) scale(1.08);
+    }
+
+    50% {
+        transform: translate(calc(30px + var(--mouse-x, 0px)), calc(-40px + var(--mouse-y, 0px))) scale(1.12);
+    }
+
+    75% {
+        transform: translate(calc(-25px + var(--mouse-x, 0px)), calc(30px + var(--mouse-y, 0px))) scale(1.06);
+    }
+}
+
+@keyframes floatRandom3 {
+
+    0%,
+    100% {
+        transform: translate(calc(0px + var(--mouse-x, 0px)), calc(0px + var(--mouse-y, 0px))) scale(1);
+    }
+
+    25% {
+        transform: translate(calc(50px + var(--mouse-x, 0px)), calc(40px + var(--mouse-y, 0px))) scale(1.06);
+    }
+
+    50% {
+        transform: translate(calc(-30px + var(--mouse-x, 0px)), calc(-50px + var(--mouse-y, 0px))) scale(1.1);
+    }
+
+    75% {
+        transform: translate(calc(35px + var(--mouse-x, 0px)), calc(45px + var(--mouse-y, 0px))) scale(1.04);
+    }
+}
+
+@keyframes floatRandom4 {
+
+    0%,
+    100% {
+        transform: translate(calc(0px + var(--mouse-x, 0px)), calc(0px + var(--mouse-y, 0px))) scale(1);
+    }
+
+    25% {
+        transform: translate(calc(-35px + var(--mouse-x, 0px)), calc(-45px + var(--mouse-y, 0px))) scale(1.07);
+    }
+
+    50% {
+        transform: translate(calc(45px + var(--mouse-x, 0px)), calc(35px + var(--mouse-y, 0px))) scale(1.11);
+    }
+
+    75% {
+        transform: translate(calc(-40px + var(--mouse-x, 0px)), calc(-20px + var(--mouse-y, 0px))) scale(1.05);
+    }
+}
+
+@keyframes floatRandom5 {
+
+    0%,
+    100% {
+        transform: translate(calc(0px + var(--mouse-x, 0px)), calc(0px + var(--mouse-y, 0px))) scale(1);
+    }
+
+    25% {
+        transform: translate(calc(25px + var(--mouse-x, 0px)), calc(55px + var(--mouse-y, 0px))) scale(1.04);
+    }
+
+    50% {
+        transform: translate(calc(-45px + var(--mouse-x, 0px)), calc(-35px + var(--mouse-y, 0px))) scale(1.09);
+    }
+
+    75% {
+        transform: translate(calc(30px + var(--mouse-x, 0px)), calc(-50px + var(--mouse-y, 0px))) scale(1.06);
+    }
+}
+
+@keyframes floatRandom6 {
+
+    0%,
+    100% {
+        transform: translate(calc(0px + var(--mouse-x, 0px)), calc(0px + var(--mouse-y, 0px))) scale(1);
+    }
+
+    25% {
+        transform: translate(calc(-50px + var(--mouse-x, 0px)), calc(30px + var(--mouse-y, 0px))) scale(1.08);
+    }
+
+    50% {
+        transform: translate(calc(40px + var(--mouse-x, 0px)), calc(-45px + var(--mouse-y, 0px))) scale(1.12);
+    }
+
+    75% {
+        transform: translate(calc(-30px + var(--mouse-x, 0px)), calc(40px + var(--mouse-y, 0px))) scale(1.05);
+    }
+}
+
+
+
+@keyframes rise {
+    0% {
+        bottom: -150px;
+        transform: translateX(0) scale(1);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.9;
+    }
+
+    25% {
+        transform: translateX(30px) translateY(0) scale(1.05);
+    }
+
+    50% {
+        transform: translateX(-20px) translateY(0) scale(1.1);
+    }
+
+    75% {
+        transform: translateX(40px) translateY(0) scale(1.05);
+    }
+
+    90% {
+        opacity: 0.5;
+    }
+
+    100% {
+        bottom: 110%;
+        transform: translateX(-30px) scale(0.9);
+        opacity: 0;
+    }
+}
+
+/* Slow floating animation for alive effect */
+@keyframes floatBubble {
+
+    0%,
+    100% {
+        transform: translateY(0px) translateX(0px);
+    }
+
+    25% {
+        transform: translateY(-15px) translateX(10px);
+    }
+
+    50% {
+        transform: translateY(-25px) translateX(-5px);
+    }
+
+    75% {
+        transform: translateY(-10px) translateX(8px);
+    }
+}
+
+/* Shine movement across the surface */
+@keyframes shineMove {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translate(10px, 10px) scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+/* Light shine sweep animation */
+@keyframes shineSweep {
+    0% {
+        left: -150%;
+    }
+
+    30% {
+        left: 200%;
+    }
+
+    100% {
+        left: 200%;
+    }
 }
 
 /* Background Curve */
@@ -195,7 +560,7 @@ body {
     width: auto;
     object-fit: cover;
     object-position: right top;
-    margin-top: -10%;
+    margin-top:35px;
     opacity: 0.9;
     filter: drop-shadow(0 0 50px rgba(164, 210, 50, 0.4));
     /* Greenish glow */
@@ -207,16 +572,19 @@ body {
     justify-content: center;
     align-items: flex-end;
     height: 100%;
+    position: relative;
+    z-index: 3;
 }
 
 .hero-person {
     position: relative;
-    z-index: 2;
+    z-index: 3;
     max-height: 70vh;
     object-fit: contain;
-    margin-bottom: -50px;
+    margin-bottom: -100px;
     /* Pull down slightly to bottom edge */
-    filter: drop-shadow(20px 0px 40px rgba(0, 0, 0, 0.6));
+    border-radius: 20px;
+    border: 10px solid #a01d26;
 }
 
 /* Common Widget Styling */
@@ -307,9 +675,19 @@ body {
 .hero-right {
     padding-left: 50px;
     position: relative;
-    z-index: 2;
-    margin-top: -150px !important;
+    z-index: 3;
+    margin-top: -10px !important;
     /* Move text up so line doesn't cut through */
+}
+
+.glass-card {
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    text-align: center;
 }
 
 .hero-pill {
@@ -924,7 +1302,7 @@ body {
 
 /* ================= MARQUEE SECTION ================= */
 .marquee-section {
-    width: 100vw;
+    width: 100%;
     background-color: var(--primary-yellow);
     /* Yellow background */
     border-top: 2px solid #000;
@@ -933,10 +1311,6 @@ body {
     padding: 60px 0;
     position: relative;
     /* ensure it stays on top of any body bleed */
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
     z-index: 10;
 }
 
@@ -951,8 +1325,9 @@ body {
     align-items: center;
     animation: marquee-scroll 30s linear infinite;
 }
-.marquee-icon{
-  color: #ffffff;
+
+.marquee-icon {
+    color: #ffffff;
 }
 
 @keyframes marquee-scroll {
@@ -1030,9 +1405,7 @@ body {
     position: relative;
     color: #ffffff;
     height: 90vh;
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
+    width: 100%;
 }
 
 .why-section .container-fluid {
@@ -1212,7 +1585,7 @@ body {
 .card-img-wrapper {
     width: 100%;
     /* Responsive default */
-   
+
 }
 
 .card-img-wrapper img {
@@ -1234,9 +1607,10 @@ body {
     justify-content: center;
     font-size: 1.2rem;
 }
-.card-content-wrapper{
-    background-color:#a01d26;
-    
+
+.card-content-wrapper {
+    background-color: #a01d26;
+
 }
 
 /* Slider Buttons */
@@ -1255,13 +1629,15 @@ body {
     background-color: #ffffff;
     color: #000;
 }
-.test{
-    color:#a01d26;
+
+.test {
+    color: #a01d26;
 }
+
 .btn-warning {
     background-color: #a01d26;
     border-color: #ffffff;
-    
+
 }
 
 /* Avatar Group Stacking */
@@ -1306,11 +1682,11 @@ body {
     .testimonial-section .row {
         flex-direction: column-reverse;
     }
-    
+
     .testimonial-section .col-lg-5 {
         text-align: center;
     }
-    
+
     .testimonial-section .sub-title {
         justify-content: center;
     }
@@ -1330,10 +1706,12 @@ body {
 
 .testimonial-card {
     position: relative;
-    background: #0b0b0b;
+    background: #a01d26;
     border-radius: 10px;
     overflow: hidden;
     z-index: 1;
+    height: 100%;
+    min-height: 380px;
 }
 
 /* rotating border */
@@ -1354,7 +1732,7 @@ body {
     content: "";
     position: absolute;
     inset: 2px;
-    background: #0b0b0b;
+    background: #a01d26; /* Changed from #0b0b0b to match brand red */
     border-radius: 10px;
     z-index: -1;
 }
@@ -1437,6 +1815,7 @@ body {
 @media (max-width: 767px) {
     .about-section {
         padding: 40px 15px;
+        text-align: center;
     }
 
     .container1 {
@@ -1454,11 +1833,13 @@ body {
 
     .section-label {
         font-size: 14px;
+        justify-content: center;
     }
 
     .overlap-card {
         padding: 30px 20px;
         gap: 20px;
+        text-align: center;
     }
 
     .stats .number {
@@ -1472,11 +1853,15 @@ body {
     /* Why Section Mobile */
     .why-title {
         font-size: 28px;
+        text-align: center;
     }
 
     .why-feature {
         gap: 12px;
         margin-top: 25px;
+        text-align: center;
+        flex-direction: column;
+        align-items: center;
     }
 
     .icon-box {
@@ -1522,6 +1907,32 @@ body {
 
     .testimonial-section {
         padding: 40px 0 !important;
+        text-align: center;
+    }
+
+    .footer-brand {
+        justify-content: center;
+    }
+
+    .footer-desc {
+        text-align: center;
+    }
+
+    .footer-socials {
+        justify-content: center;
+    }
+
+    .footer-links {
+        text-align: center;
+    }
+
+    .footer-address {
+        text-align: center;
+        align-items: center;
+    }
+
+    .footer-heading {
+        text-align: center;
     }
 }
 
@@ -1597,6 +2008,11 @@ body {
     /* Testimonial Extra Small */
     .test-text {
         font-size: 20px;
+    }
+
+    .testimonial-card {
+        min-height: 400px; /* Slightly taller for extra small screens due to text wrap */
+        height: 100%;
     }
 
     .card-content-wrapper {
@@ -1764,7 +2180,7 @@ body {
     overflow: hidden;
     transform-origin: top center;
     will-change: transform, opacity;
-    color:white;
+    color: white;
 }
 
 .ssc-left {
@@ -1773,8 +2189,7 @@ body {
     display: flex;
     gap: 30px;
     background-color: #a01d26;
-    color:white
-
+    color: white
 }
 
 .ssc-number {

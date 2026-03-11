@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", (event) => {
     // Register ScrollTrigger
+
     gsap.registerPlugin(ScrollTrigger);
 
     const stackCards = gsap.utils.toArray('.service-stack-card');
@@ -22,6 +23,45 @@ document.addEventListener("DOMContentLoaded", (event) => {
             });
         }
     });
+
+    // ================= HERO BUBBLES PARALLAX EFFECT =================
+    const heroSection = document.querySelector('.hero-section');
+    const bubbles = document.querySelectorAll('.hero-bubbles .bubble');
+
+    if (heroSection && bubbles.length > 0) {
+        heroSection.addEventListener('mousemove', (e) => {
+            const { clientX, clientY } = e;
+            const centerX = window.innerWidth / 2;
+            const centerY = window.innerHeight / 2;
+
+            // Calculate distance from center (normalized between -1 and 1)
+            const moveX = (clientX - centerX) / centerX;
+            const moveY = (clientY - centerY) / centerY;
+
+            bubbles.forEach((bubble, index) => {
+                // Different movement speeds for different bubbles to create depth
+                const speed = (index % 3 + 1) * 15; 
+                
+                const x = moveX * speed;
+                const y = moveY * speed;
+
+                // Apply translation, ensuring we don't override the CSS animations
+                // by using a transform variable or applying it to a wrapper
+                // Since they have varying CSS animations for floating, 
+                // we'll apply this as a secondary transform via CSS variables
+                bubble.style.setProperty('--mouse-x', `${x}px`);
+                bubble.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // Reset on mouse leave
+        heroSection.addEventListener('mouseleave', () => {
+            bubbles.forEach(bubble => {
+                bubble.style.setProperty('--mouse-x', '0px');
+                bubble.style.setProperty('--mouse-y', '0px');
+            });
+        });
+    }
 
     // ================= CONTACT US MODAL LOGIC =================
     const contactBtn = document.getElementById('contactBtn');
@@ -121,22 +161,62 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 const submitBtn = contactForm.querySelector('.btn-submit-contact');
                 const originalContent = submitBtn.innerHTML;
 
-                // Show success state
-                submitBtn.innerHTML = '<span>Sent Successfully! <i class="fa-solid fa-check"></i></span>';
-                submitBtn.style.background = '#4CAF50';
-                submitBtn.style.color = '#fff';
+                // Show loading state
+                submitBtn.innerHTML = '<span>Sending... <i class="fa-solid fa-spinner fa-spin"></i></span>';
+                submitBtn.style.opacity = '0.8';
+                submitBtn.disabled = true;
 
-                // Automatically close modal after success
-                setTimeout(() => {
-                    closeModal();
+                // Collect data
+                const formData = {
+                    name: document.getElementById('contactName').value,
+                    email: document.getElementById('contactEmail').value,
+                    phone: document.getElementById('contactPhone').value,
+                    comment: document.getElementById('contactComment').value
+                };
 
-                    // Reset button styling after modal closes
+                // Google Apps Script Web App URL
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbwMlD6cqMtbvRKa5Ft7aPKaCX14su5xb9bQeR7fcanxXxOgPqDvZ1vpH9Cqi7Zyuvbt/exec';
+
+                fetch(scriptURL, {
+                    method: 'POST',
+                    mode: 'no-cors', // standard for Google Forms/Scripts to avoid CORS issues on client side
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                })
+                .then(response => {
+                    // Show success state
+                    submitBtn.innerHTML = '<span>Sent Successfully! <i class="fa-solid fa-check"></i></span>';
+                    submitBtn.style.background = '#4CAF50';
+                    submitBtn.style.color = '#fff';
+                    submitBtn.style.opacity = '1';
+
+                    // Automatically close modal after success
+                    setTimeout(() => {
+                        closeModal();
+
+                        // Reset button styling after modal closes
+                        setTimeout(() => {
+                            submitBtn.innerHTML = originalContent;
+                            submitBtn.style.background = '';
+                            submitBtn.style.color = '';
+                            submitBtn.disabled = false;
+                        }, 400);
+                    }, 1500);
+                })
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    submitBtn.innerHTML = '<span>Error! Try Again</span>';
+                    submitBtn.style.background = '#f44336';
+                    
                     setTimeout(() => {
                         submitBtn.innerHTML = originalContent;
                         submitBtn.style.background = '';
-                        submitBtn.style.color = '';
-                    }, 400);
-                }, 1500);
+                        submitBtn.style.opacity = '1';
+                        submitBtn.disabled = false;
+                    }, 3000);
+                });
             }
         });
     }
